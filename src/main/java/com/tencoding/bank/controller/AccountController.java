@@ -14,9 +14,9 @@ public class AccountController {
 	//http/localhost:80/account/list
 	
 	@GetMapping({"/list"})
-	public void list() {
-		//return "account/list";
-		throw new CustomPageException("페이지가 없다", HttpStatus.NOT_FOUND);
+	public String list() {
+		return "account/list";
+		
 	} 
 	//계좌 생성 페이지
 	//http:/localhost/account/save
@@ -47,7 +47,7 @@ public class AccountController {
 	
 	//TODO - 수정하기
 	//상세 보기 페이지(난이도up)
-	//http:/localhost/account/detail/1 
+	//http:/localhost/account/detail 
 	@GetMapping("detail")
 	public String detail() {
 		return "account/detail";
