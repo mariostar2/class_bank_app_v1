@@ -3,15 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tencoding.bank.repository.interfaces.UserRepository"> 
 	
+	<select id="findByUsernameAndPassword" resultType="com.tencoding.bank.repository.model.User">
+		select * from user_tb
+		where username = #{username} and password = #{password}
+	</select>
 	<insert id="insert">
 		insert into user_tb(username, password, fullname, created_at)
-		values(#{username}, #{password}, #{fullname}, now());
+		values(#{username}, #{password}, #{fullname}, now())
 	</insert>
 	
 	<update id="updateById">
 		update user_tb set username = #{username}, 
 				password = #{password}, fullname = #{fullname} 
-				where id = #{id};
+				where id = #{id}
 	</update>
 	
 	<delete id="deleteById">

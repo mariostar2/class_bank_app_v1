@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,32 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-	  <link rel = "stylesheet" href=/css/styles/css>
-  <style>
-    .m--profile {
-      background-image: url(https://picsum.photos/id/1/350);
-      background-size: cover;  
-      background-position: center;
-      width: 100%;
-      height: 200px;
-    }
-     .f--wrap {
-        position: fixed;    
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background-color: #f8f9fa;
-    }   
-    .banner--img {
-        background-image: url(https://picsum.photos/600);
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-    }
-
-  </style>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
@@ -54,12 +30,22 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/user/sign-in">SignIn</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/user/sign-up">SignUp</a>
-      </li>    
+      <c:choose>
+        <c:when test="${principal != null}">
+          <li class="nav-item">
+            <a class="nav-link" href="/user/logout">logout</a>
+          </li>
+        </c:when>
+        <c:otherwise>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/sign-in">sign-in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/sign-up">sign-out</a>
+          </li>    
+        </c:otherwise>
+      </c:choose>
+      
     </ul>
   </div>  
 </nav>

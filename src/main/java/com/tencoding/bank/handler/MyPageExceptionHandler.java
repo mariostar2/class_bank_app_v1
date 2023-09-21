@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tencoding.bank.exception.CustomPageException;
+import com.tencoding.bank.handler.exception.CustomPageException;
 
 /**
  * View 렌더링을 위해 ModelAndView 

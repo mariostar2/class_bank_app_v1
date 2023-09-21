@@ -2,6 +2,7 @@ package com.tencoding.bank.repository.interfaces;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
+import com.tencoding.bank.dto.SignInFormDto;
 import com.tencoding.bank.dto.SignUpFormDto;
 import com.tencoding.bank.repository.model.User;
 
@@ -16,4 +17,5 @@ public interface UserRepository {
 	public int deleteById(Integer id);
 	public User findById(Integer id);
 	public List<User> findAll();
+	public User findByUsernameAndPassword(SignInFormDto signInFormDto);
 }

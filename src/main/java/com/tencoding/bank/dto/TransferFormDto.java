@@ -9,4 +9,5 @@ public class TransferFormDto {
 	private String wAccountNumber;
 	private String dAccountNumber;
 	private String wAccountPassword;
+	
 }
