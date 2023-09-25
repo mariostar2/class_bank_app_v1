@@ -4,7 +4,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +28,9 @@ public class UserController {
 	@Autowired // DI 처리 
 	private HttpSession session;
 	
-
+	@Autowired	//Di 처리
+	private PasswordEncoder passwordEncoder;
+	
 	// 회원 가입 페이지 요청
 	// http://localhost:80/user/sign-up
 	@GetMapping("/sign-up")
@@ -49,6 +53,8 @@ public class UserController {
 	 */
 	@PostMapping("/sign-up")
 	public String signUpProc(SignUpFormDto signUpFormDto) {
+		
+		//PasswordEncorder
 
 		// 1. 유효성 검사
 		if (signUpFormDto.getUsername() == null || signUpFormDto.getUsername().isEmpty()) {
@@ -101,5 +107,16 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/user/sign-in";
 	}
-
+	
+	
+	@GetMapping("/test-data")
+	
+	public String testData(Model model) {
+		
+		
+		
+		
+		
+		return "user/testData";
+	}
 }

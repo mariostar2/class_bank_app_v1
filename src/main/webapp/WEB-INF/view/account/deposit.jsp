@@ -13,6 +13,7 @@
 				<form action="/account/deposit" method="post">
 					<label for="amount">입금 금액</label> <input type="text" id="amount"
 						class="form-control" placeholder="입금금액을 입력하시오" name="amount">
+					<br>
 					<div class="form-group">
 						<label for="dAccountNumber">입금 계좌번호</label> <input type="text"
 							id="dAccountNumber" class="form-control" placeholder="입금 계좌번호 입력"

@@ -10,3 +10,4 @@ public class DepositFormDto {
 	private String wAccountNumber;
 	
 }
+	
